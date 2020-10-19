@@ -15,20 +15,13 @@ Recommended:
 
 Clone the repository
 
-```sh
-git clone git@github.com:emilybache/Tennis-Refactoring-Kata.git
-```
-
-or
-
 ```shell script
-git clone https://github.com/emilybache/Tennis-Refactoring-Kata.git
+git clone https://github.com/luisfelipegh/tennis-refactor
 ```
 
 Install all the dependencies using composer
 
 ```shell script
-cd Tennis-Refactoring-Kata/php
 composer install
 ```
 

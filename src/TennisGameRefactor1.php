@@ -96,9 +96,7 @@ class TennisGameRefactor1 implements TennisGame
             return $this->getTiesScores($this->m_score1);
         }
         if ($this->m_score1 >= 4 || $this->m_score2 >= 4) {
-            $minusResult = $this->m_score1 - $this->m_score2;
-
-            return $this->firstFourPoints($minusResult);
+            return $this->firstFourPoints($this->m_score1, $this->m_score2);
         }
 
         return $this->getDefaultScore($this->m_score1, $this->m_score2);
@@ -109,15 +107,17 @@ class TennisGameRefactor1 implements TennisGame
         return self::SCORES_ALL[$score] ?? self::DEUCE;
     }
 
-    private function firstFourPoints(int $minus): string
+    private function firstFourPoints(int $markPlayer1, int $markPlayer2): string
     {
-        if ($minus === 1) {
+        $minusResult = $markPlayer1 - $markPlayer2;
+
+        if ($minusResult === 1) {
             return self::ADVANTAGE_PLAYER_1;
         }
-        if ($minus === -1) {
+        if ($minusResult === -1) {
             return self::ADVANTAGE_PLAYER_2;
         }
-        if ($minus >= 2) {
+        if ($minusResult >= 2) {
             return self::WIN_PLAYER_1;
         }
 
